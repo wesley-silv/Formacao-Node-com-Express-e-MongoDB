@@ -1,0 +1,3 @@
+# Ignorando arquivos nos commits do git.
+
+node_modules
