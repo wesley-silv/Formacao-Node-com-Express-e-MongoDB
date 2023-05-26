@@ -125,3 +125,20 @@ Importe o **app.js** dentro do **server.js** para fazer uso do mesmo, pois ele e
 E alterar a porta para `const port = process.env.port || 3000;`
 
 E modificar o `server.listen` par `app.listen`, e rodar a aplicação, o terminal apresentará um erro de indicando que o package.json precisa ter um `"type": "module"`.
+
+O Express possui uma forma de criar um projeto já com pastas estruturadas, consulte a documentação para entender mais do uso dessa ferramenta.
+
+## Projeto livraria
+
+O CRUD significa `Criar, Ler, Atualizar e Deletar`. O método POST atualiza uma uri específica, e para isso deve ser especificada qual rota desejamos atualizar como no exemplo `app.post('/livros', (req, res) => {})`.
+
+```
+app.post('/livros', (req, res) => {
+  livros.push(req.body)
+  res.status(201).send('Livro foi cadastrado com sucesso.')
+})
+```
+
+E para testar as alterações vamos usar o Postman como ferramenta de testes da api. Com as alterações seguintes o livro será cadastrado, no entanto ao verificar com o método GET o valor apresentado será NULL.
+
+Para que os formatos sejam reconhecidos deve-se usar `app.use(express.json())`, o qual deve ser colocado logo abaixo da constante do express. Assim os valores cadastrados não serão mostrados como null.
