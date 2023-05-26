@@ -65,3 +65,63 @@ E para rodar o servidor com o uso do nodemon dentro do **package.json** em scrip
 Criando o arquivo **.gitignore** com node_modules para ignorar a pasta da dependência.
 
 ## 2° Instalação e conceituação
+
+O Express facilita o trabalho rotas, a documentação do Express está em [_Framework Express_](https://expressjs.com 'Ir para  o site do Express') e o Npm [_NPM_](https://npmjs.com 'Ir para a documentação NPM').
+
+Versão do express `npm i express@4.17.3`
+
+Pensando no projeto como em boas práticas vamos cria um pasta **src** que é a origem, e dentro dela vamos criar um arquivo **app.js**. O uso do Express somente será possível com o uso do `import`.
+
+Em **app.js** uso o seguinte código:
+
+```
+import express from 'express'
+
+const app = express()
+
+const livros = [
+  {
+    id: 1,
+    titulo: 'Senhor dos Aneis'
+  },
+  {
+    id: 2,
+    titulo: 'O hobbit'
+  }
+]
+
+app.get('/', (req, res) => {
+  res.status(200).send('Curso de Node com o Oso do Express')
+})
+
+app.get('/livros', (req, res) => {
+  res.status(200).json(livros)
+}
+)
+
+// Exporta o contúdo para fora do arquivo.
+export default app
+```
+
+Agora as rotas não podem ser rotas fixas e o **server.js** deve ser modificado para apresentar em formato json o objto livros. Exclua todo o contúdo a seguir em **server.js**.
+
+```
+const http = require('http')
+
+const rotas = {
+  '/': 'Curso de NodeJS',
+  '/livros': 'Entrando na página de livros',
+  '/autores': 'Listagem de autores',
+}
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' })
+  res.end(rotas[req.url])
+})
+```
+
+Importe o **app.js** dentro do **server.js** para fazer uso do mesmo, pois ele está exportado por padrão `import app from './src/app.js'`, a extensão deve ser passada manualmente para evitar erros.
+
+E alterar a porta para `const port = process.env.port || 3000;`
+
+E modificar o `server.listen` par `app.listen`, e rodar a aplicação, o terminal apresentará um erro de indicando que o package.json precisa ter um `"type": "module"`.
