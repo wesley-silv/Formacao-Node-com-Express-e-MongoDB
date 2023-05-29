@@ -2,7 +2,7 @@ import express from 'express'
 
 const app = express()
 
-app.use(express.json())
+app.use(express.json()) // Permite que o formato json dos arquivos sejam lidos.
 
 const livros = [
   {
@@ -18,15 +18,32 @@ const livros = [
 app.get('/', (req, res) => {
   res.status(200).send('Curso de Node com o uso do framework Express')
 })
-
+// Método GET de busca geral
 app.get('/livros', (req, res) => {
   res.status(200).json(livros)
 })
 
+// Método GET de busca por id
+app.get('/livros/:id', (req, res) => {
+  let index = buscaLivro(req.params.id)
+  res.status(201).json(livros[index])
+})
+
+// Método POST de adição de livros
 app.post('/livros', (req, res) => {
   livros.push(req.body)
   res.status(201).send('Livro foi cadastrado com sucesso.')
 })
 
+// Método PUT de atualização de livros por id
+app.put('/livros/:id', (req, res) => {
+  let index = buscaLivro(req.params.id)
+  livros[index].titulo = req.body.titulo
+  res.status(201).json(livros)
+})
+
+function buscaLivro(id) {
+  return livros.findIndex(livro => livro.id == id)
+}
 // Exporta o contúdo para fora do arquivo.
 export default app
