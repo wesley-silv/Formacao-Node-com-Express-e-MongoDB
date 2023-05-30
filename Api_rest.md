@@ -196,7 +196,7 @@ app.delete('/livros/:id', (req, res) => {
 
 Para usar o recurso da exclusão do livro o parâmetro do id deve ser passado na uri, todas as funcionalidades do CRUD estão em plena funcionalidade.
 
-## 3° Banco realcional e NoSQL
+## 3° Banco relacional e NoSQL
 
 O desenvolvedor deve ter a percepção de qual o tipo de banco será melhor para usar na aplicação no armazenamento dos dados. O banco de dados **relacional** e caracterizado pelo uso de tabelas, cada tabela possui campos e registros, além terem chaves primárias e chaves estrangeiras, as quais referenciam outras tabelas conectadas a tabela em questão. Estas tabelas podem conter dados específicos sobre um determinado campo da tabela, o qual não convém armazenar na primeira tabela.
 
@@ -205,4 +205,6 @@ De modo mais claro o as tabelas se relacionam umas com as outras com por meio da
 Os bancos NoSQL **Not Only SQL** são bancos que tem a mesma funcionalidade de armazenar dados, no entanto, possuem uma forma diferente do padrão SQL pois não possuem os seus dados dispostos em tabelas, nem tão pouco usam o padrão SQL para consulta, modificação e exclusão de dados. Um exemplo da forma de disposição dos dados é um objeto com um **id** único.
 
 Os bancos NoSQL são muito usuias no mercado pelo armazenamento de grandes dados, assim como no **big data**. O **MongoDB** é um banco que armazena dodos com base em documentos, e tais documentos estão dispostos em arquivso _.json_.
+
+## Utilizando o MongoDB
 
