@@ -208,3 +208,13 @@ Os bancos NoSQL são muito usuias no mercado pelo armazenamento de grandes dados
 
 ## Utilizando o MongoDB
 
+Usando o banco MongoDB na nuvem, o que facilita a hospedagem dos dados em um banco sem limitações. O **Atlas** é o banco na nuvem do banco MongoDB [**MongoDB**](https://www.mongodb.com/cloud/atlas/lp/try4?utm_source=bing&utm_campaign=search_bs_pl_evergreen_atlas_core_prosp-brand_gic-null_amers-br_ps-all_desktop_eng_lead&utm_term=mongodb&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=415204511&adgroup=1209463260064162&msclkid=7813627e736311a8dc1306086c0569dd).
+
+Para usar o mongobd é preciso usar uma conta para fins de gerenciamento de usuários, seja para a conta paga ou gratuita, para uso do projeto, o login foi realizado com a conta do google **wesleysilv23@gmail.com**.
+
+Na criação de um projeto o MongoDB vai solicitar um usuário e uma senha: `wesley_silva` e `database`.
+
+Após ter criado a **orgnaização** o **projeto** e o **cluster** inicie inserindo dados no campo coleções. No dia a dia os livros não serão inseridos manualmento pelo GUI do MongoDB. No entanto todos os dados dispostos no banco poderão ser inseridos, modificados e atualizados pelo próprio GUI do MongoDB.
+
+## Iniciando com o Mongoose 
+
