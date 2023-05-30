@@ -181,3 +181,17 @@ app.get('/livros/:id', (req, res) => {
 ```
 
 ## Finalizando o CRUD
+
+O método delete é o resposável por excluir do dados pelo id, tendo uma atribuição por desestruturação.
+
+```
+// Método DELETE de exclusão do livro
+app.delete('/livros/:id', (req, res) => {
+  let {id} = req.params;
+  let index = buscaLivro(id)
+  livros.splice(index, 1);
+  res.send(`livro ${id} removido com sucesso.`)
+})
+```
+
+Para usar o recurso da exclusão do livro o parâmetro do id deve ser passado na uri, todas as funcionalidades do CRUD estão em plena funcionalidade.
